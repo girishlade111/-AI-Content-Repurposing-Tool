@@ -15,24 +15,39 @@ export default async function AnalyticsPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-dark-900 noise">
+    <div className="min-h-screen flex flex-col bg-[var(--bg-primary)] noise">
       <div className="fixed inset-0 grid-bg pointer-events-none opacity-30" />
       <Header />
       
-      <main className="flex-1 container py-8 mx-auto px-4 relative z-10">
-        <div className="flex items-center justify-between mb-8">
+      <main className="flex-1 container py-12 mx-auto px-4 relative z-10">
+        <div className="flex items-center justify-between mb-10 animate-fade-in-up">
           <div>
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-2">
-              <Link href="/dashboard" className="hover:text-amber-400 transition-colors">Dashboard</Link>
+            <div className="flex items-center gap-2 text-sm text-slate-400 mb-3">
+              <Link href="/dashboard" className="hover:text-amber-400 transition-colors flex items-center gap-1">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Dashboard
+              </Link>
               <span>/</span>
               <span className="text-white">Analytics</span>
             </div>
-            <h1 className="text-3xl font-bold text-white">Analytics</h1>
-            <p className="text-slate-400 mt-1">Track your content repurposing performance</p>
+            <h1 className="text-4xl font-bold text-white mb-2">Analytics</h1>
+            <p className="text-slate-400 text-lg">Track your content repurposing performance</p>
           </div>
+          <Link href="/dashboard">
+            <Button variant="secondary" size="sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back
+            </Button>
+          </Link>
         </div>
 
-        <AnalyticsDashboard />
+        <div className="animate-fade-in-up animate-delay-100">
+          <AnalyticsDashboard />
+        </div>
       </main>
 
       <Footer />

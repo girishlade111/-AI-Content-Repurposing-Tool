@@ -185,7 +185,7 @@ const pricingTiers = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-dark-900 noise">
+    <div className="min-h-screen bg-[var(--bg-primary)] noise">
       <div className="fixed inset-0 grid-bg pointer-events-none opacity-50" />
 
       <main>
@@ -341,7 +341,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="how-it-works" className="py-24 px-4 bg-dark-800/50">
+        <section id="how-it-works" className="py-24 px-4 bg-[var(--bg-secondary)]/50">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-400 text-sm font-medium mb-4">
@@ -408,7 +408,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-24 px-4 bg-dark-800/50">
+        <section className="py-24 px-4 bg-[var(--bg-secondary)]/50">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-400 text-sm font-medium mb-4">
