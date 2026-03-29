@@ -38,30 +38,23 @@ export function Header() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="#features"
-              className="text-slate-300 hover:text-amber-400 transition-colors"
-            >
-              Features
-            </Link>
-            <Link
-              href="#how-it-works"
-              className="text-slate-300 hover:text-amber-400 transition-colors"
-            >
-              How It Works
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-slate-300 hover:text-amber-400 transition-colors"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#faq"
-              className="text-slate-300 hover:text-amber-400 transition-colors"
-            >
-              FAQ
-            </Link>
+            {session ? (
+              <>
+                <Link href="/dashboard" className="text-slate-300 hover:text-amber-400 transition-colors">
+                  Dashboard
+                </Link>
+                <Link href="/dashboard/new" className="text-slate-300 hover:text-amber-400 transition-colors">
+                  New Job
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link href="#features" className="text-slate-300 hover:text-amber-400 transition-colors">Features</Link>
+                <Link href="#how-it-works" className="text-slate-300 hover:text-amber-400 transition-colors">How It Works</Link>
+                <Link href="#pricing" className="text-slate-300 hover:text-amber-400 transition-colors">Pricing</Link>
+                <Link href="#faq" className="text-slate-300 hover:text-amber-400 transition-colors">FAQ</Link>
+              </>
+            )}
           </div>
 
           <div className="hidden md:flex items-center gap-4">

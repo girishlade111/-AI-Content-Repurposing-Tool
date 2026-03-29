@@ -42,7 +42,16 @@ export default async function DashboardPage() {
             <h1 className="text-3xl font-bold text-white">Dashboard</h1>
             <p className="text-slate-400 mt-1">Welcome back, {session.user?.name}</p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
+            <Link href="/dashboard/library">
+              <Button variant="secondary">Library</Button>
+            </Link>
+            <Link href="/dashboard/bulk">
+              <Button variant="secondary">Bulk</Button>
+            </Link>
+            <Link href="/dashboard/social">
+              <Button variant="secondary">Social</Button>
+            </Link>
             <Link href="/dashboard/templates">
               <Button variant="secondary">Templates</Button>
             </Link>

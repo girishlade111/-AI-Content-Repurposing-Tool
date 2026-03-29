@@ -19,6 +19,9 @@ model User {
   jobs      RepurposingJob[]
   templates Template[]
   analytics Analytics[]
+  libraryItems ContentLibrary[]
+  bulkJobs  BulkJob[]
+  socialAccounts SocialAccount[]
 }
 
 model RepurposingJob {
@@ -32,6 +35,7 @@ model RepurposingJob {
   completedAt  DateTime?
   content      GeneratedContent[]
   analytics    Analytics[]
+  libraryItem  ContentLibrary?
 }
 
 model GeneratedContent {
@@ -68,4 +72,62 @@ model Analytics {
   eventType   String
   eventData   String?
   createdAt   DateTime @default(now())
+}
+
+model ContentLibrary {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  jobId       String?  @unique
+  job         RepurposingJob? @relation(fields: [jobId], references: [id])
+  title       String
+  folder      String   @default("default")
+  tags        String   @default("[]")
+  isFavorite  Boolean  @default(false)
+  contentType String?
+  preview     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BulkJob {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  name        String
+  items       String   @default("[]")
+  status      String   @default("pending")
+  progress    Int      @default(0)
+  totalItems  Int      @default(0)
+  completedItems Int   @default(0)
+  results     String   @default("[]")
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+}
+
+model SocialAccount {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  platform    String
+  accessToken String
+  refreshToken String?
+  accountName String?
+  accountId   String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ScheduledPost {
+  id          String   @id @default(cuid())
+  userId      String
+  accountId   String
+  content     String
+  platform    String
+  scheduledFor DateTime
+  status      String   @default("scheduled")
+  postId      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
