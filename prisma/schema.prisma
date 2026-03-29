@@ -17,6 +17,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   jobs      RepurposingJob[]
+  templates Template[]
+  analytics Analytics[]
 }
 
 model RepurposingJob {
@@ -29,6 +31,7 @@ model RepurposingJob {
   createdAt    DateTime @default(now())
   completedAt  DateTime?
   content      GeneratedContent[]
+  analytics    Analytics[]
 }
 
 model GeneratedContent {
@@ -39,4 +42,30 @@ model GeneratedContent {
   platform  String?
   content   String
   createdAt DateTime @default(now())
+}
+
+model Template {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  name        String
+  description String?
+  category    String   @default("custom")
+  systemPrompt String
+  tone        String   @default("professional")
+  isDefault   Boolean  @default(false)
+  useCount    Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Analytics {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  jobId       String?
+  job         RepurposingJob? @relation(fields: [jobId], references: [id])
+  eventType   String
+  eventData   String?
+  createdAt   DateTime @default(now())
 }
