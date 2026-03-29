@@ -11,8 +11,8 @@ interface Job {
   id: string;
   inputType: string;
   status: string;
-  createdAt: string;
-  completedAt: string | null;
+  createdAt: string | Date;
+  completedAt: string | Date | null;
   content: Array<{
     id: string;
     type: string;

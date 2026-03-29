@@ -263,7 +263,7 @@ export default function HomePage() {
                   <div className="w-3 h-3 rounded-full bg-green-500" />
                 </div>
                 <div className="pt-8 p-6 md:p-8 font-mono text-sm">
-                  <div className="text-slate-500 mb-4">// Input your content</div>
+                  <div className="text-slate-500 mb-4">{"// Input your content"}</div>
                   <div className="bg-dark-700/50 rounded-lg p-4 mb-4 border border-white/5">
                     <p className="text-green-400">Paste YouTube URL or your blog content here...</p>
                     <p className="text-slate-500 mt-2">https://youtube.com/watch?v=...</p>
@@ -432,7 +432,7 @@ export default function HomePage() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-slate-300 mb-6 leading-relaxed&quot;>{testimonial.content}</p>
+                  <p className="text-slate-300 mb-6 leading-relaxed">{testimonial.content}</p>
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white font-semibold">
                       {testimonial.avatar}
